@@ -2,25 +2,23 @@
 
 Waystone Emeralds adds emerald-based payment helpers for Waystones warp requirements.
 
-It does not add its own config file. Pack makers keep using Waystones' existing `warpRequirements` list and replace XP cost rules with the emerald cost functions registered by this mod.
+It adds its own `config/waystone_emeralds-common.toml` file. When enabled, it applies emerald-cost rules to Waystones at runtime, so pack makers do not need to edit `config/waystones-common.toml` for this feature.
 
-## Functions
+## Config
 
-Use these functions in `config/waystones-common.toml`:
+Default `config/waystone_emeralds-common.toml`:
 
 ```toml
 [teleports]
-enableCosts = true
-warpRequirements = [
-  "[is_not_interdimensional] add_emerald_cost(1)",
-  "[is_interdimensional] add_emerald_cost(3)",
-  "[source_is_scroll] multiply_emerald_cost(0)",
-  "min_emerald_cost(0)",
-  "max_emerald_cost(3)"
-]
+enableEmeraldCosts = true
+sameDimensionCost = 1
+interdimensionalCost = 3
+scrollCostMultiplier = 0.0
+minCost = 0
+maxCost = 3
 ```
 
-This example mirrors the common Waystones XP setup, but charges emerald units instead:
+The default config mirrors a simple fixed Waystones XP setup, but charges emerald units instead:
 
 - Same-dimension warp: 1 emerald.
 - Interdimensional warp: 3 emeralds.
