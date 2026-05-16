@@ -63,7 +63,7 @@ public final class EmeraldPayment {
             giveInventoryEmeralds(player, consumedInventory);
             return 0;
         }
-        return consumedInventory;
+        return emeralds;
     }
 
     public static void giveInventoryEmeralds(Player player, int emeralds) {

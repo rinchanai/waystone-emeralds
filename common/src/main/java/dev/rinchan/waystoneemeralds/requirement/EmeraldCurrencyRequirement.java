@@ -8,7 +8,7 @@ import net.minecraft.world.entity.player.Player;
 
 public class EmeraldCurrencyRequirement implements WarpRequirement {
     private int emeralds;
-    private int consumedInventoryEmeralds;
+    private int consumedEmeralds;
 
     public EmeraldCurrencyRequirement(int emeralds) {
         this.emeralds = Math.max(0, emeralds);
@@ -21,14 +21,14 @@ public class EmeraldCurrencyRequirement implements WarpRequirement {
 
     @Override
     public void consume(Player player) {
-        consumedInventoryEmeralds = EmeraldPayment.consume(player, emeralds);
+        consumedEmeralds = EmeraldPayment.consume(player, emeralds);
     }
 
     @Override
     public void rollback(Player player) {
-        if (consumedInventoryEmeralds > 0) {
-            EmeraldPayment.giveInventoryEmeralds(player, consumedInventoryEmeralds);
-            consumedInventoryEmeralds = 0;
+        if (consumedEmeralds > 0) {
+            EmeraldPayment.giveInventoryEmeralds(player, consumedEmeralds);
+            consumedEmeralds = 0;
         }
     }
 
