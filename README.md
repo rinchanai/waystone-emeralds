@@ -2,7 +2,7 @@
 
 Waystone Emeralds adds emerald-based payment helpers for Waystones warp requirements.
 
-It adds its own `config/waystone_emeralds-common.toml` file. When enabled, it applies emerald-cost rules to Waystones at runtime, so pack makers do not need to edit `config/waystones-common.toml` for this feature.
+Configure teleport costs in `config/waystone_emeralds-common.toml`.
 
 ## Config
 
